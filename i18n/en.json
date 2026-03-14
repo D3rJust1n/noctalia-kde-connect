@@ -45,5 +45,11 @@
       "no-device": "No device",
       "not-paired": "Not paired"
     }
+  },
+  "settings": {
+    "no-device-connected-hide": {
+      "label": "Hide if unavailable",
+      "description": "Hide the bar button entirely if no device is connected"
+    }
   }
 }

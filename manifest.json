@@ -18,7 +18,8 @@
     "main": "Main.qml",
     "barWidget": "BarWidget.qml",
     "controlCenterWidget": "ControlCenterWidget.qml",
-    "panel": "Panel.qml"
+    "panel": "Panel.qml",
+    "settings": "Settings.qml"
   },
   "dependencies": {
     "plugins": []

@@ -17,6 +17,8 @@ QtObject {
   property string mainDeviceId: ""
   property string busctlCmd: ""
 
+  property bool anyDevicesConnected: false;
+
   onDevicesChanged: {
     setMainDevice(root.mainDeviceId)
   }
@@ -57,6 +59,8 @@ QtObject {
     if (root.mainDevice !== newMain) {
       root.mainDevice = newMain;
     }
+
+    anyDevicesConnected = devices.find((device) => device.reachable) !== undefined;
   }
 
   function triggerFindMyPhone(deviceId: string): void {
@@ -139,13 +143,22 @@ QtObject {
     onExited: (exitCode, exitStatus) => {
       root.daemonAvailable = exitCode == 0;
       if (root.daemonAvailable) {
-        root.refreshDevices();
+        forceOnNetworkChange.running = true;
       } else {
         root.devices = []
         root.mainDevice = null
       }
     }
   }
+
+  property Process forceOnNetworkChange: Process {
+  command: busctlCall("/modules/kdeconnect", "org.kde.kdeconnect.daemon", "forceOnNetworkChange")
+  stdout: StdioCollector {
+    onStreamFinished: {
+      getDevicesProc.running = true;
+    }
+  }
+}
 
   // Get device list
   property Process getDevicesProc: Process {
@@ -185,16 +198,7 @@ QtObject {
       })
 
       function start() {
-        forceOnNetworkChange.running = true
-      }
-
-      property Process forceOnNetworkChange: Process {
-        command: busctlCall("/modules/kdeconnect", "org.kde.kdeconnect.daemon", forceOnNetworkChange)
-        stdout: StdioCollector {
-          onStreamFinished: {
-            nameProc.running = true;
-          }
-        }
+        nameProc.running = true
       }
 
       property Process nameProc: Process {
