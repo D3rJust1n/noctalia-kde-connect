@@ -27,9 +27,9 @@
       "unavailable-desc": "Убедитесь, что KDE Connect установлен в системе и служба kdeconnectd работает.",
        "device-unavailable": "Устройство сейчас недоступно"
     },
-    "qdbus-error": {
-      "unavailable-title": "Не удаётся найти qdbus!",
-      "unavailable-desc": "Убедитесь, что qdbus (или qdbus6 на некоторых системах) установлен в вашей системе"
+    "busctl-error": {
+      "unavailable-title": "Не удаётся найти busctl!",
+      "unavailable-desc": "Убедитесь, что busctl установлен в вашей системе"
     }
   },
    "bar": {

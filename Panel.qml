@@ -173,7 +173,7 @@ Item {
         Layout.fillWidth: true
         Layout.fillHeight: true
         active: true
-        sourceComponent:  (KDEConnect.qdbusCmd === null || KDEConnect.qdbusCmd === "")         ? qdbusNotFoundCard                :
+        sourceComponent:  (KDEConnect.busctlCmd === null || KDEConnect.busctlCmd === "")       ? busctlNotFoundCard               :
                           (!KDEConnect.daemonAvailable)                                        ? kdeConnectDaemonNotRunningCard   :
                           (deviceSwitcherOpen)                                                 ? deviceSwitcherCard               :
                           (KDEConnect.mainDevice !== null && !KDEConnect.mainDevice.reachable) ? deviceNotReachableCard           :
@@ -602,7 +602,7 @@ Item {
 
 
       Component {
-        id: qdbusNotFoundCard
+        id: busctlNotFoundCard
 
         Rectangle {
           Layout.fillWidth: true
@@ -630,7 +630,7 @@ Item {
             Item {}
 
             NText {
-              text: pluginApi?.tr("panel.qdbus-error.unavailable-title")
+              text: pluginApi?.tr("panel.busctl-error.unavailable-title")
               pointSize: Style.fontSizeL
               color: Color.mOnSurfaceVariant
               Layout.alignment: Qt.AlignCenter
@@ -639,7 +639,7 @@ Item {
             }
 
             NText {
-              text: pluginApi?.tr("panel.qdbus-error.unavailable-desc")
+              text: pluginApi?.tr("panel.busctl-error.unavailable-desc")
               pointSize: Style.fontSizeS
               color: Color.mOnSurfaceVariant
               Layout.alignment: Qt.AlignCenter

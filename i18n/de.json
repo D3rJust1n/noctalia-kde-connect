@@ -27,9 +27,9 @@
       "unavailable-desc": "Sicherstellen, dass die KDE Connect-Anwendung auf Ihrem System installiert ist und dass der kdeconnectd-Daemon gestartet wurde",
       "device-unavailable": "Das Gerät ist derzeit nicht verfügbar."
     },
-    "qdbus-error": {
-      "unavailable-title": "qdbus kann nicht gefunden werden!",
-      "unavailable-desc": "Stelle sicher, dass qdbus (oder qdbus6 auf einigen Systemen) auf deinem System installiert ist"
+    "busctl-error": {
+      "unavailable-title": "busctl kann nicht gefunden werden!",
+      "unavailable-desc": "Stelle sicher, dass busctl (teil von systemd) auf deinem System installiert ist"
     }
   },
   "bar": {
