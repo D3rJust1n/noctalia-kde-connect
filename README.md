@@ -2,6 +2,9 @@
 
 A Plugin integrating your mobile devices into a panel using KDEConnect
 
+> [!IMPORTANT]
+> Please submit any Pull Requests to https://github.com/WerWolv/noctalia-kde-connect and **NOT** to the noctalia-plugins repository!
+
 ## Features
 - Support for multiple devices
 - Panel to manage all devices
